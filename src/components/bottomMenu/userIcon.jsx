@@ -1,0 +1,36 @@
+const UserIcon = ({ color }) => {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="User">
+        <g id="Group 10138">
+          <path
+            id="Vector"
+            d="M30.5 30.9999V27.4444C30.5 25.5584 29.7362 23.7497 28.3765 22.4161C27.0169 21.0825 25.1728 20.3333 23.25 20.3333H8.75C6.82718 20.3333 4.98311 21.0825 3.62348 22.4161C2.26384 23.7497 1.5 25.5584 1.5 27.4444V30.9999"
+            stroke={color}
+            stroke-opacity="0.8"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            id="Vector_2"
+            d="M15.75 15.5C19.7541 15.5 23 12.2541 23 8.25C23 4.24594 19.7541 1 15.75 1C11.7459 1 8.5 4.24594 8.5 8.25C8.5 12.2541 11.7459 15.5 15.75 15.5Z"
+            stroke={color}
+            stroke-opacity="0.8"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
+      </g>
+    </svg>
+  );
+};
+
+export default UserIcon;

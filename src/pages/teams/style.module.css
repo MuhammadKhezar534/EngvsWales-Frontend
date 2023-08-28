@@ -1,0 +1,133 @@
+.scoreWrap {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: start;
+}
+
+.alignSelf {
+  align-self: end;
+}
+
+.title {
+  color: #282e34;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.2px;
+}
+
+.matchName {
+  color: #282e34;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.2px;
+  text-align: center;
+}
+
+.matchImg {
+  border-radius: 21px;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+.teamName {
+  color: #fff;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.28px;
+}
+
+.subText {
+  color: #fff;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.6px;
+}
+
+.teamWrap {
+  display: flex;
+  margin: 50px 0px;
+  gap: 12px;
+}
+
+.bg {
+  max-width: 120px;
+  padding: 20px;
+  height: 170px;
+  border-radius: 21px;
+  background: #ff8c8c;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  flex: 1;
+  margin: 0 auto;
+}
+
+.bgSouth {
+  max-width: 120px;
+  padding: 20px;
+  height: 170px;
+  flex: 1;
+  border-radius: 21px;
+  background: #8ca5ff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.statsWrap {
+  border-radius: 16px;
+  background: #f3f3f3;
+  padding: 20px;
+  margin: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1; /* Both columns will have equal width */
+  padding: 20px;
+  text-align: left;
+}
+
+.statName {
+  color: #65c955;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.72px;
+}
+
+.statValue {
+  color: #141b34;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.48px;
+}

@@ -1,0 +1,18 @@
+.add-player-icon {
+  height: 120px;
+  width: 120px;
+  border-radius: 16px;
+  cursor: pointer;
+  /* margin: 32px 0; */
+}
+
+.captain-label {
+  display: flex;
+  margin: 12px 0;
+}
+
+.team-select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

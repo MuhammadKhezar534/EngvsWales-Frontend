@@ -1,0 +1,44 @@
+.logoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: start;
+}
+
+.alignSelf {
+  align-self: end;
+}
+
+.title {
+  color: #282e34;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.2px;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1; /* Both columns will have equal width */
+  padding: 20px;
+  text-align: left;
+}
+
+.my30 {
+  margin: 48px 0;
+  position: relative;
+}
+
+.legend {
+  position: absolute;
+  top: 23px;
+  right: 10px;
+  z-index: 5;
+  color: #ffff;
+  font-size: 16px;
+  font-weight: 500;
+}

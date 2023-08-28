@@ -1,0 +1,17 @@
+.scoreWrap {
+  display: flex;
+  justify-content: space-between;
+  margin: 32px 0;
+  gap: 12px;
+}
+
+.namePointWrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.col {
+  flex: 1;
+}

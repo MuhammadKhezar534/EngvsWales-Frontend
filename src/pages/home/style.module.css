@@ -1,0 +1,43 @@
+.scoreWrap {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: start;
+}
+
+.alignSelf {
+  align-self: end;
+}
+
+.title {
+  color: #282e34;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.2px;
+}
+
+.matchName {
+  color: #282e34;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.2px;
+  text-align: center;
+}
+
+.matchImg {
+  border-radius: 21px;
+  margin-top: 24px;
+  cursor: pointer;
+  margin: 24px auto;
+}
