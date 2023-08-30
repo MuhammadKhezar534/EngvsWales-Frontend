@@ -25,3 +25,7 @@ export const addGame = (payload) => {
 export const updateGame = (id, payload) => {
   return axios.put(`/game?gameId=${id}`, payload);
 };
+
+export const getGameById = (id) => {
+  return axios.get(`/game/single-game/${id}`);
+};

@@ -5,12 +5,13 @@ import "../style.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { errThrough, parsePlayerList } from "../../../utilities/function";
-import { addGame, updateGame } from "../../../apis/api";
+import { addGame, getGameById, updateGame } from "../../../apis/api";
 
 const AddMondayGame = () => {
   const [state, setState] = useState({ loading: true });
   const { id, number } = useParams();
   const location = useLocation();
+  const [currentGame, setCurrentGame] = useState({});
   const navigate = useNavigate();
 
   const [northTeams, setNorthTeams] = useState(parsePlayerList()?.north);
@@ -32,10 +33,27 @@ const AddMondayGame = () => {
       });
   };
 
+  const getGameThroughId = (id) => {
+    getGameById(id)
+      .then((resp) => {
+        console.log({ resp });
+        setCurrentGame(resp?.data);
+      })
+      .catch((err) => {
+        errThrough(err);
+      });
+  };
+
+  useEffect(() => {
+    if (id) {
+      getGameThroughId(id);
+    }
+  }, []);
+
   const updateTheGame = () => {
     const payload = {
-      northScore: state?.northPoints ?? "",
-      southScore: state?.southPoints ?? "",
+      northScore: state?.northPoints ?? currentGame?.northScore,
+      southScore: state?.southPoints ?? currentGame?.southScore,
     };
 
     updateGame(id, payload)
@@ -102,7 +120,7 @@ const AddMondayGame = () => {
           type="text"
           name="northPoints"
           placeholder="Enter Points"
-          value={state.northPoints}
+          value={state.northPoints ?? currentGame?.northScore}
           onChange={handleChange}
         />
       )}
@@ -130,7 +148,7 @@ const AddMondayGame = () => {
           type="text"
           name="southPoints"
           placeholder="Enter Points"
-          value={state.southPoints}
+          value={state.southPoints ?? currentGame?.southScore}
           onChange={handleChange}
         />
       )}

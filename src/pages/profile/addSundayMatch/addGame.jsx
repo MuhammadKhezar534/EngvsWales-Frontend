@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
 import "../style.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { errThrough, parsePlayerList } from "../../../utilities/function";
-import { addGame, updateGame } from "../../../apis/api";
+import {
+  addGame,
+  getGameById,
+  getPlayersList,
+  updateGame,
+} from "../../../apis/api";
 
 const AddGame = () => {
   const [state, setState] = useState({ loading: true });
+  const [currentGame, setCurrentGame] = useState({});
 
   const [northTeams, setNorthTeams] = useState(parsePlayerList()?.north);
   const [southTeams, setSouthTeams] = useState(parsePlayerList()?.south);
@@ -39,10 +45,40 @@ const AddGame = () => {
       });
   };
 
+  const getGameThroughId = (id) => {
+    getGameById(id)
+      .then((resp) => {
+        console.log({ resp });
+        setCurrentGame(resp?.data);
+      })
+      .catch((err) => {
+        errThrough(err);
+      });
+  };
+
+  useEffect(() => {
+    if (id) {
+      getGameThroughId(id);
+    }
+    getTeams("NORTH");
+    getTeams("SOUTH");
+  }, []);
+
+  const getTeams = (teamType) => {
+    getPlayersList(teamType)
+      .then((resp) => {
+        localStorage.setItem(teamType, JSON.stringify(resp?.data));
+      })
+      .catch((err) => {
+        errThrough(err);
+      });
+  };
+
   const updateTheGame = () => {
+    console.log({ state });
     const payload = {
-      northScore: state?.northPoints ?? "",
-      southScore: state?.southPoints ?? "",
+      northScore: state?.northPoints ?? currentGame?.northScore,
+      southScore: state?.southPoints ?? currentGame?.southScore,
     };
 
     updateGame(id, payload)
@@ -78,8 +114,6 @@ const AddGame = () => {
   const handleGameSubmit = () => {
     saveGame();
   };
-
-  console.log({ id });
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
@@ -131,7 +165,7 @@ const AddGame = () => {
           type="text"
           name="northPoints"
           placeholder="Enter Points"
-          value={state.northPoints}
+          value={state.northPoints ?? currentGame?.northScore}
           onChange={handleChange}
         />
       )}
@@ -175,7 +209,7 @@ const AddGame = () => {
           type="text"
           name="southPoints"
           placeholder="Enter Points"
-          value={state.southPoints}
+          value={state.southPoints ?? currentGame?.southScore}
           onChange={handleChange}
         />
       )}

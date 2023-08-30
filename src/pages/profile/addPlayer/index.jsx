@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "../style.css";
 import { toast } from "react-toastify";
-import { addPlayer } from "../../../apis/api";
+import { addPlayer, getPlayersList } from "../../../apis/api";
 import { errThrough } from "../../../utilities/function";
 
 const AddPlayer = () => {
@@ -14,9 +14,20 @@ const AddPlayer = () => {
   const handleAddPlayer = (payload) => {
     addPlayer(payload)
       .then((resp) => {
-        console.log({ resp });
         toast.success("Player added successfully");
+        getTeams("NORTH");
+        getTeams("SOUTH");
         navigate("/profile");
+      })
+      .catch((err) => {
+        errThrough(err);
+      });
+  };
+
+  const getTeams = (teamType) => {
+    getPlayersList(teamType)
+      .then((resp) => {
+        localStorage.setItem(teamType, JSON.stringify(resp?.data));
       })
       .catch((err) => {
         errThrough(err);

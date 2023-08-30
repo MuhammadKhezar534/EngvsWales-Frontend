@@ -35,3 +35,40 @@ export const parsePlayerList = (teamType) => {
 
   return { north, south };
 };
+
+export const isDecimal = (number) => {
+  return number !== Math.floor(number);
+};
+
+const calculateScore = (scoreArr) => {
+  let point = 0;
+
+  scoreArr?.forEach((score) => {
+    if (score !== "" && score !== "a/s") {
+      point++;
+    } else if (score !== "" && score === "a/s") {
+      point = point + 0.5;
+    }
+  });
+
+  return point;
+};
+
+export const parseScore = (games) => {
+  let northScores = [];
+  let southScores = [];
+
+  games?.forEach((game) => {
+    northScores.push(game?.northScore?.toLowerCase());
+    southScores.push(game?.southScore?.toLowerCase());
+  });
+
+  return {
+    northScore: calculateScore(northScores),
+    southScore: calculateScore(southScores),
+    winner:
+      calculateScore(northScores) > calculateScore(southScores)
+        ? "North"
+        : "South",
+  };
+};

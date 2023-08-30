@@ -36,7 +36,7 @@ const AddSundayMatch = () => {
       <h2>Add Monday Singles Match</h2>
 
       {games?.length < 12 && (
-        <button className="mr-12" onClick={() => navigate("add-game")}>
+        <button className="mr-0" onClick={() => navigate("add-game")}>
           Add Game
         </button>
       )}
