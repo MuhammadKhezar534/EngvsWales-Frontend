@@ -11,6 +11,12 @@ const TeamNorth = () => {
         teams?.map((team) => (
           <PlayerCard {...team} key={team?._id} team="north" />
         ))}
+
+      {teams?.length <= 0 && (
+        <div style={{ fontSize: "22px", fontWeight: "700" }}>
+          No Player Found
+        </div>
+      )}
     </div>
   );
 };

@@ -67,10 +67,12 @@ const MondaySingles = () => {
           ))}
         </div>
       </div>
-      <Winner
-        // text={"Team North Win 10 1/2 Points to  7 1/22 Points over Team South"}
-        text={teamFinalScores?.winner + " team win."}
-      />
+      {teamFinalScores?.northScore > 0 && teamFinalScores?.southScore > 0 && (
+        <Winner
+          // text={"Team North Win 10 1/2 Points to  7 1/22 Points over Team South"}
+          text={teamFinalScores?.winner + " team win."}
+        />
+      )}
     </div>
   );
 };
