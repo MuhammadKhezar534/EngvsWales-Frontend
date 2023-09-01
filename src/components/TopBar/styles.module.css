@@ -1,0 +1,26 @@
+.topBar {
+  box-shadow: 5px 9px 10px rgba(0, 0, 0, 0.3);
+
+  position: fixed;
+  top: 10px;
+  background: #fff;
+  height: 65px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 5;
+  width: 90%;
+  border-radius: 20px;
+  max-width: 450px;
+}
+
+.topBar span {
+  text-align: left;
+  color: #282e34;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.2px;
+  margin-left: 20px;
+}

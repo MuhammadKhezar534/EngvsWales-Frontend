@@ -17,6 +17,7 @@ import AddSundayMatch from "./pages/profile/addSundayMatch";
 import AddMondayMatch from "./pages/profile/addMondayMatch";
 import AddGame from "./pages/profile/addSundayMatch/addGame";
 import AddMondayGame from "./pages/profile/addMondayMatch/addMondayGame";
+import Results from "./pages/Results";
 
 const Routes = () => {
   const routes = [
@@ -30,7 +31,7 @@ const Routes = () => {
         },
         {
           path: "matches",
-          element: <SundayFourBalls />,
+          element: <Results />,
         },
         {
           path: "teams",

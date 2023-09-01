@@ -49,7 +49,7 @@ const BottomMenu = () => {
           className={styles.sTitle}
           style={{ color: pathname === "/venues" ? "#65C955" : "" }}
         >
-          Venus
+          Venu
         </div>
       </span>
       <span className={styles.pointer} onClick={() => navigate("/login")}>
