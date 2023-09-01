@@ -11,17 +11,31 @@ const UserProfile = () => {
       <div>
         <h3>Add Player</h3>
         <button onClick={() => navigate("/add-player")}>Add Player</button>
-        {/* <img
-          className="add-player-icon"
-          src="/images/add-player.png"
-          alt="add-player"
-          onClick={() => navigate("/add-player")}
-        /> */}
       </div>
-      <h3>Add Sunday Fourballs Match</h3>
-      <button onClick={() => navigate("/add-sunday-match")}>Add Match</button>
-      <h3>Add Monday Singles Match</h3>
-      <button onClick={() => navigate("/add-monday-match")}>Add Match</button>
+      <h3>Sunday Fourballs Matches</h3>
+      <div
+        style={{
+          display: "flex",
+          gap: "10px",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <button onClick={() => navigate("/add-sunday-match")}>Add Match</button>
+        <button onClick={() => navigate("/sunday-fixtures")}>Results</button>
+      </div>
+      <h3>Monday Singles Matches</h3>
+      <div
+        style={{
+          display: "flex",
+          gap: "10px",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <button onClick={() => navigate("/add-monday-match")}>Add Match</button>
+        <button onClick={() => navigate("/monday-fixtures")}>Results</button>
+      </div>
     </div>
   );
 };

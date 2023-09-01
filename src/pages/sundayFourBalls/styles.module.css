@@ -5,10 +5,14 @@
   gap: 12px;
 }
 
+.ctnM {
+  margin-bottom: 80px;
+}
+
 .namePointWrap {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  /* gap: 12px; */
   align-items: center;
 }
 

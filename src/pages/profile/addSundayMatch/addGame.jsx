@@ -116,7 +116,11 @@ const AddGame = () => {
   };
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
+    <form
+      className="login-form"
+      onSubmit={handleSubmit}
+      style={{ marginBottom: "80px" }}
+    >
       <div className="d-flex">
         <img
           src="/images/back-arrow.png"

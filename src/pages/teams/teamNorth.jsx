@@ -3,8 +3,9 @@ import PlayerCard from "../../components/playerCard";
 
 const TeamNorth = () => {
   const teams = JSON.parse(localStorage.getItem("NORTH"));
+
   return (
-    <div>
+    <div style={{ marginBottom: "80px" }}>
       <PageHeader title={"Team North"} showLogo={true} />
       {teams &&
         teams?.length > 0 &&

@@ -7,7 +7,6 @@ const PointWithName = ({
   point = "3up",
   position = "left",
 }) => {
-  console.log({ name });
   return (
     <div className={styles.pointNameWrap}>
       {position === "left" && <div className={styles.point}>{point}</div>}
