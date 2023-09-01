@@ -1,17 +1,15 @@
 .app-container {
   max-width: 500px;
-  margin: 16px auto 100px;
+  margin: auto;
   text-align: center;
   min-width: 390px;
 }
 
 .carousel .slide img {
   border-radius: 10px;
-  object-fit: cover;
-  aspect-ratio: 16/12;
 }
 
-.carousel .slide {
+/* .carousel .slide {
   margin: 0 10px !important;
 }
 
@@ -21,7 +19,7 @@
   opacity: 1 !important;
   font-weight: 600 !important;
   background: unset !important;
-}
+} */
 
 button {
   /* width: 100%; */

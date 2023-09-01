@@ -1,10 +1,10 @@
 import React from "react";
 
-const HomeIcon = ({ color }) => {
+const HomeIcon = ({ color, height = 28, width = 25 }) => {
   return (
     <svg
-      width="32"
-      height="32"
+      width={width}
+      height={height}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

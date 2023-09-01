@@ -7,20 +7,25 @@ import PointWithName from "../../components/pointWithName";
 import Winner from "../../components/winner";
 import { getGames } from "../../apis/api";
 import { errThrough, parseScore } from "../../utilities/function";
+import Loader from "../../components/Loader";
 
 const MondaySingles = () => {
   const [games, setGames] = useState([]);
   const [teamFinalScores, setScores] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const getgames = () => {
+    setLoading(true);
     getGames("MONDAY_SINGLES")
       .then((resp) => {
         setGames(resp?.data);
         const scores = parseScore(resp?.data);
         setScores(scores);
+        setLoading(false);
       })
       .catch((err) => {
         errThrough(err);
+        setLoading(false);
       });
   };
 
@@ -29,7 +34,7 @@ const MondaySingles = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ marginBottom: "160px" }}>
       <PageHeader title={"Monday Singles"} />
       <div className={styles.scoreWrap}>
         <ScoreBox
@@ -67,12 +72,14 @@ const MondaySingles = () => {
           ))}
         </div>
       </div>
-      {teamFinalScores?.northScore > 0 && teamFinalScores?.southScore > 0 && (
+
+      {(teamFinalScores?.northScore > 0 || teamFinalScores?.southScore > 0) && (
         <Winner
           // text={"Team North Win 10 1/2 Points to  7 1/22 Points over Team South"}
           text={teamFinalScores?.winner + " team win."}
         />
       )}
+      <Loader loading={loading} />
     </div>
   );
 };

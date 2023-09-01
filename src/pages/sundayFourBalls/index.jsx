@@ -6,19 +6,25 @@ import ScoreBox from "../../components/scoreBox";
 import PointWithName from "../../components/pointWithName";
 import { getGames } from "../../apis/api";
 import { errThrough, parseScore } from "../../utilities/function";
+import Loader from "../../components/Loader";
 
 const SundayFourBalls = () => {
   const [games, setGames] = useState([]);
   const [teamFinalScores, setScores] = useState({});
+  const [loading, setLoading] = useState(false);
+
   const getgames = () => {
+    setLoading(true);
     getGames("SUNDAY_FOURBALLS")
       .then((resp) => {
         setGames(resp?.data);
         const scores = parseScore(resp?.data);
         setScores(scores);
+        setLoading(false);
       })
       .catch((err) => {
         errThrough(err);
+        setLoading(false);
       });
   };
 
@@ -26,10 +32,8 @@ const SundayFourBalls = () => {
     getgames();
   }, []);
 
-  console.log({ teamFinalScores });
-
   return (
-    <div>
+    <div className={styles.ctnM}>
       <PageHeader title={"Sunday Fourballs"} />
       <div className={styles.scoreWrap}>
         <ScoreBox
@@ -67,6 +71,7 @@ const SundayFourBalls = () => {
           ))}
         </div>
       </div>
+      <Loader loading={loading} />
     </div>
   );
 };

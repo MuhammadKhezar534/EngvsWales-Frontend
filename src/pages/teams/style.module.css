@@ -16,6 +16,68 @@
   align-self: end;
 }
 
+.teamWrap {
+  display: flex;
+  margin: 50px 0px;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.teamCont {
+  margin-bottom: 80px;
+}
+
+.bckImg {
+  background-image: url("/public/images/downloadSouth.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  height: 300px;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  filter: drop-shadow(2px 4px 8px #585858);
+}
+
+.imgS {
+  margin-top: 20px;
+  background-image: url("/public/images/imageGolfs.jpeg");
+}
+
+.imgW {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  text-align: left;
+
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  padding: 8px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.teamName {
+  color: #5177ff;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.28px;
+}
+
+.subText {
+  color: #5177ff;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.6px;
+}
+
 .title {
   color: #282e34;
   font-size: 30px;
@@ -39,32 +101,6 @@
   border-radius: 21px;
   margin-top: 24px;
   cursor: pointer;
-}
-
-.teamName {
-  color: #fff;
-  font-family: Inter;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: -1.28px;
-}
-
-.subText {
-  color: #fff;
-  font-family: Inter;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.6px;
-}
-
-.teamWrap {
-  display: flex;
-  margin: 50px 0px;
-  gap: 12px;
 }
 
 .bg {

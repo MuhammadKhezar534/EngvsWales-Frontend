@@ -5,7 +5,7 @@ const TeamSouth = () => {
   const teams = JSON.parse(localStorage.getItem("SOUTH"));
 
   return (
-    <div>
+    <div style={{ marginBottom: "80px" }}>
       <PageHeader title={"Team South"} showLogo={true} />
       {teams &&
         teams?.length > 0 &&

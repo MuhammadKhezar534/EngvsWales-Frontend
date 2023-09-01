@@ -60,7 +60,7 @@ const AddPlayer = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="login-container" style={{ marginBottom: "80px" }}>
       <form className="login-form" onSubmit={handleLogin}>
         <div className="d-flex">
           <img

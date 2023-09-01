@@ -1,13 +1,9 @@
 .scoreBox {
-  min-width: 120px;
-  max-width: 150px;
-  min-height: 100px;
-  border-radius: 21px;
-  background: #ff8c8c;
+  /* background: #ff8c8c; */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #000;
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
@@ -15,29 +11,74 @@
   letter-spacing: -2.8px;
   padding: 15px;
   margin: 0 auto;
+
+  margin-top: 40px;
+
+  text-shadow: 5px 3px 4px rgba(0, 0, 0, 0.5);
 }
 
 .name {
-  color: #282e34;
-  font-size: 36px;
+  color: #fff;
+  font-size: 30px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   letter-spacing: -2px;
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  /* background-color: #6a83dd;
+  opacity: 0.6;
+  border-radius: 10px; */
 }
 
 .bottomMenuWrap {
   position: fixed;
   bottom: 0;
   background: #fff;
-  height: 88px;
+  height: 65px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   z-index: 5;
   width: 100%;
+  border-radius: 10px 10px 0px 0px;
   max-width: 500px;
+}
+
+.sTitle {
+  font-size: 10px;
+}
+
+.homeIcon {
+  cursor: pointer;
+  margin-bottom: 34px;
+}
+
+.hCircle {
+  width: 40px;
+  height: 40px;
+  background-color: #65c955;
+  border-radius: 50%;
+  border: 5px solid #65c955;
+  animation: expandAndContract 2s linear infinite;
+  animation-fill-mode: forwards;
+  position: relative;
+
+  padding: 1px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pointerHome {
+  cursor: pointer;
+}
+
+.sTitleH {
+  margin-top: 10px;
+  font-size: 10px;
 }
 
 .pointer {
@@ -69,23 +110,28 @@
   margin-bottom: 18px;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
+
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .playerName {
   color: #fff;
   text-align: center;
   font-family: Inter;
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   letter-spacing: -0.8px;
   border-radius: 16px;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   padding: 8px;
-  min-width: 50px;
+  width: 100px;
   overflow-wrap: anywhere;
 }
 
@@ -98,16 +144,45 @@
   align-items: center;
   justify-content: center;
   padding: 4px;
+  border-radius: 2px;
 }
 
 .winnerWrap {
+  position: fixed;
+  bottom: 110px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  z-index: 8px;
+  gap: 30%;
 }
 
 .col {
   flex: 1;
+
+  background-image: url("/public/images/noSc.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  height: 200px;
+  filter: drop-shadow(2px 4px 8px #585858);
+  opacity: 0.8;
+}
+
+/* .col:hover {
+  scale: 0.97;
+} */
+
+.col2 {
+  flex: 1;
+
+  background-image: url("/public/images/soSc.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  filter: drop-shadow(2px 4px 8px #585858);
+  opacity: 0.8;
 }
 
 .winnerText {
@@ -191,4 +266,19 @@
   display: flex;
   gap: 20px;
   margin: 16px;
+}
+
+@keyframes expandAndContract {
+  0% {
+    transform: scale(0.9);
+    background-color: #65c955;
+  }
+  50% {
+    transform: scale(1);
+    background-color: #65c955;
+  }
+  100% {
+    transform: scale(0.9);
+    background-color: #65c955;
+  }
 }
