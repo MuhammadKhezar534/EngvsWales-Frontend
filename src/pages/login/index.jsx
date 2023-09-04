@@ -1,23 +1,29 @@
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../apis/api";
+import Loader from "../../components/Loader";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const loginUser = () => {
+    setLoading(true);
     login({
       email: username,
       password,
     })
       .then((resp) => {
         localStorage.setItem("XAUTH", resp?.data?.data?.access_token);
+        setLoading(false);
         navigate("/profile");
       })
       .catch((err) => {
+        setLoading(false);
         setError(err?.response?.data?.message);
       });
   };
@@ -58,10 +64,14 @@ const LoginForm = () => {
             setError("");
           }}
         />
-        <button type="submit">Login</button>
+        <button type="submit" className="butt-log">
+          Login
+        </button>
 
         {error && <p className="login-error">{error}</p>}
       </form>
+
+      <Loader loading={loading} />
     </div>
   );
 };
