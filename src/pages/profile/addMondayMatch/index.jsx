@@ -4,17 +4,22 @@ import { useNavigate } from "react-router-dom";
 import "../style.css";
 import { getGames } from "../../../apis/api";
 import { errThrough } from "../../../utilities/function";
+import Loader from "../../../components/Loader";
 
 const AddSundayMatch = () => {
   const navigate = useNavigate();
   const [games, setGames] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchGames = () => {
+    setLoading(true);
     getGames("MONDAY_SINGLES")
       .then((resp) => {
         setGames(resp?.data);
+        setLoading(false);
       })
       .catch((err) => {
+        setLoading(false);
         errThrough(err);
       });
   };
@@ -54,6 +59,7 @@ const AddSundayMatch = () => {
           </div>
         </div>
       ))}
+      <Loader loading={loading} />
     </div>
   );
 };

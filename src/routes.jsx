@@ -18,6 +18,7 @@ import AddMondayMatch from "./pages/profile/addMondayMatch";
 import AddGame from "./pages/profile/addSundayMatch/addGame";
 import AddMondayGame from "./pages/profile/addMondayMatch/addMondayGame";
 import Results from "./pages/Results";
+import UpdatePlayer from "./pages/profile/updatePlayer";
 
 const Routes = () => {
   const routes = [
@@ -78,8 +79,12 @@ const Routes = () => {
               element: <UserProfile />,
             },
             {
-              path: "add-player",
+              path: "add-player/:id?",
               element: <AddPlayer />,
+            },
+            {
+              path: "update-player",
+              element: <UpdatePlayer />,
             },
             {
               path: "add-sunday-match",

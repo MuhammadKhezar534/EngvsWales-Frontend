@@ -29,3 +29,7 @@ export const updateGame = (id, payload) => {
 export const getGameById = (id) => {
   return axios.get(`/game/single-game/${id}`);
 };
+
+export const getPlayerById = (id) => {
+  return axios.get(`/player/single/${id}`);
+};

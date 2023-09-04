@@ -12,6 +12,13 @@ const UserProfile = () => {
         <h3>Add Player</h3>
         <button onClick={() => navigate("/add-player")}>Add Player</button>
       </div>
+
+      <div>
+        <h3>Players</h3>
+        <button onClick={() => navigate("/update-player")}>
+          Update Player
+        </button>
+      </div>
       <h3>Sunday Fourballs Matches</h3>
       <div
         style={{
@@ -21,8 +28,10 @@ const UserProfile = () => {
           justifyContent: "center",
         }}
       >
-        <button onClick={() => navigate("/add-sunday-match")}>Add Match</button>
-        <button onClick={() => navigate("/sunday-fixtures")}>Results</button>
+        <button onClick={() => navigate("/add-sunday-match")}>
+          Add Match / Results
+        </button>
+        {/* <button onClick={() => navigate("/sunday-fixtures")}></button> */}
       </div>
       <h3>Monday Singles Matches</h3>
       <div
@@ -33,8 +42,10 @@ const UserProfile = () => {
           justifyContent: "center",
         }}
       >
-        <button onClick={() => navigate("/add-monday-match")}>Add Match</button>
-        <button onClick={() => navigate("/monday-fixtures")}>Results</button>
+        <button onClick={() => navigate("/add-monday-match")}>
+          Add Match / Results
+        </button>
+        {/* <button onClick={() => navigate("/monday-fixtures")}>Results</button> */}
       </div>
     </div>
   );

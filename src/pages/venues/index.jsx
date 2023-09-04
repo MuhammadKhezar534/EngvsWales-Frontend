@@ -29,14 +29,37 @@ const Venues = () => {
         </div>
       </div>
 
-      <div className={styles.txtBx}>
-        <div className={styles.inTxt}>Hill Valley Golf Club</div>
-        <div className={styles.sInnTxP}>
-          Set within the glorious north Shropshire countryside, complemented by
-          the smooth greens of our very own golf club, Hill Valley Golf and Spa
-          Hotel offers a tranquil base and fabulous facilities – perfect for a
-          break with family or friends and all within easy reach of the A41 and
-          A49 intersection, half a mile from Whitchurch Town Centre.
+      <div className={styles.iCtnT}>
+        <div
+          className={styles.contImg}
+          onClick={() =>
+            window.open(
+              "https://www.macdonaldhotels.co.uk/hill-valley?gclid=05606a4c63841f06aab30eab025284c0&gclsrc=3p.ds&utm_source=bing&utm_medium=cpc&utm_campaign=Search_Hotels_Brand_Hill%20Valley&utm_term=hill%20valley&utm_content=Brand_Hill%20Valley",
+              "_blank"
+            )
+          }
+        >
+          <img src="/images/image11.png" alt="png-i" />
+        </div>
+
+        <div className={styles.txtBx}>
+          <div className={styles.inTxt}>Hill Valley Golf Club</div>
+          <div className={styles.sInnTxP}>
+            Set within the glorious north Shropshire countryside, complemented
+            by the smooth greens of our very own golf club, Hill Valley Golf and
+            Spa Hotel offers a tranquil base and fabulous facilities – perfect
+            for a break with family or friends and all within easy reach of the
+            A41 and A49 intersection, half a mile from Whitchurch Town Centre.
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.imgsRow}>
+        <div className={styles.inIm}>
+          <img src="/images/16148996.jpg" alt="16148996.jpg" />
+        </div>
+        <div className={styles.inIm}>
+          <img src="/images/venue.png" alt="16148996.jpg" />
         </div>
       </div>
     </div>

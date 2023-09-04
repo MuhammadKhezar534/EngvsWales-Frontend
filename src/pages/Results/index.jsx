@@ -10,7 +10,8 @@ const Results = () => {
   let navigate = useNavigate();
   return (
     <div className={styles.cCtn}>
-      <TopBar title="Results" />
+      {/* <TopBar title="Results" /> */}
+      <h1>Results</h1>
       <div
         onClick={() => navigate("/sunday-fixtures")}
         className={styles.cICtn}

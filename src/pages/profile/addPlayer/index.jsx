@@ -1,15 +1,30 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import "../style.css";
 import { toast } from "react-toastify";
-import { addPlayer, getPlayersList } from "../../../apis/api";
+import { addPlayer, getPlayerById, getPlayersList } from "../../../apis/api";
 import { errThrough } from "../../../utilities/function";
+import Loader from "../../../components/Loader";
 
 const AddPlayer = () => {
   const [state, setState] = useState("");
   //   const [error, setError] = useState("");
+  const { id = null } = useParams();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [currentPlayer, setPlayer] = useState({
+    firstName: "Dan",
+    lastName: "Atkins",
+    teamType: "NORTH",
+    isCaptain: false,
+    playerBio: "Player from Leeds",
+    homeCourse: "Calverley Golf Club",
+    favouriteClub: "5 Wood",
+    favouriteCourse: "Belton Woods",
+    dgaEvents: 5,
+    topTenFinishes: 3,
+  });
 
   const handleAddPlayer = (payload) => {
     addPlayer(payload)
@@ -59,6 +74,25 @@ const AddPlayer = () => {
     setState((prev) => ({ ...prev, [name]: value }));
   };
 
+  useEffect(() => {
+    if (id) {
+      // getGameThroughId(id);
+    }
+  }, []);
+
+  const getGameThroughId = (id) => {
+    setLoading(true);
+    getPlayerById(id)
+      .then((resp) => {
+        console.log({ platerFetc: resp });
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        errThrough(err);
+      });
+  };
+
   return (
     <div className="login-container" style={{ marginBottom: "80px" }}>
       <form className="login-form" onSubmit={handleLogin}>
@@ -76,7 +110,7 @@ const AddPlayer = () => {
           required
           name="firstName"
           placeholder="First Name"
-          value={state.firstName}
+          value={state.firstName ?? currentPlayer?.firstName}
           onChange={handleChange}
         />
 
@@ -84,7 +118,7 @@ const AddPlayer = () => {
           type="text"
           name="lastName"
           placeholder="Last Name"
-          value={state.lastName}
+          value={state.lastName ?? currentPlayer?.lastName}
           onChange={handleChange}
         />
 
@@ -92,7 +126,7 @@ const AddPlayer = () => {
           name="team"
           required
           placeholder="Select Team"
-          value={state.team}
+          value={state.team ?? currentPlayer?.teamType?.toLowerCase()}
           onChange={handleChange}
         >
           <option disabled value="" selected>
@@ -109,7 +143,8 @@ const AddPlayer = () => {
             }}
             type="checkbox"
             name="captain"
-            value={state.captain}
+            value={state.captain ?? currentPlayer?.isCaptain}
+            checked={state.captain ?? currentPlayer?.isCaptain}
           />
         </label>
         <textarea
@@ -118,7 +153,7 @@ const AddPlayer = () => {
           name="bio"
           cols={6}
           placeholder="Enter player bio..."
-          value={state.bio}
+          value={state.bio ?? currentPlayer?.playerBio}
           onChange={handleChange}
         />
 
@@ -126,7 +161,7 @@ const AddPlayer = () => {
           type="text"
           name="homeCourse"
           placeholder="Home Course"
-          value={state.homeCourse}
+          value={state.homeCourse ?? currentPlayer?.homeCourse}
           onChange={handleChange}
         />
 
@@ -134,21 +169,21 @@ const AddPlayer = () => {
           type="text"
           name="favoriteClub"
           placeholder="Favourite Club"
-          value={state.favoriteClub}
+          value={state.favoriteClub ?? currentPlayer?.favouriteClub}
           onChange={handleChange}
         />
         <input
           type="text"
           name="favoriteCourse"
           placeholder="Favourite Course"
-          value={state.favoriteCourse}
+          value={state.favoriteCourse ?? currentPlayer?.favouriteClub}
           onChange={handleChange}
         />
         <input
           type="number"
           name="DGAEventsPlayed"
           placeholder="DGA Events Played"
-          value={state.DGAEventsPlayed}
+          value={state.DGAEventsPlayed ?? currentPlayer?.dgaEvents}
           onChange={handleChange}
         />
 
@@ -156,7 +191,7 @@ const AddPlayer = () => {
           type="number"
           name="top10Finish"
           placeholder="Top 10 Finishes"
-          value={state.top10Finish}
+          value={state.top10Finish ?? currentPlayer?.topTenFinishes}
           onChange={handleChange}
         />
 
@@ -173,6 +208,7 @@ const AddPlayer = () => {
 
         {/* {error && <p className="login-error">{error}</p>} */}
       </form>
+      <Loader loading={loading} />
     </div>
   );
 };

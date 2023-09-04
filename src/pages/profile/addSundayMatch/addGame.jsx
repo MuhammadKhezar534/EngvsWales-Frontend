@@ -11,18 +11,15 @@ import {
   getPlayersList,
   updateGame,
 } from "../../../apis/api";
+import Loader from "../../../components/Loader";
 
 const AddGame = () => {
   const [state, setState] = useState({ loading: true });
   const [currentGame, setCurrentGame] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const [northTeams, setNorthTeams] = useState(parsePlayerList()?.north);
   const [southTeams, setSouthTeams] = useState(parsePlayerList()?.south);
-
-  // const [northPlayer1, setNorthP1] = useState(null);
-  // const [northPlayer2, setNorthP2] = useState(null);
-  // const [southPlayer1, setSouthP1] = useState(null);
-  // const [southPlayer2, setSouthP2] = useState(null);
 
   const { id, number } = useParams();
   const location = useLocation();
@@ -34,7 +31,6 @@ const AddGame = () => {
       northPlayers: [state?.northPlayer1, state?.northPlayer2],
       southPlayers: [state?.southPlayer1, state?.southPlayer2],
     };
-    console.log({ makePayload });
     addGame(makePayload)
       .then((resp) => {
         toast.success("Successfully saved");
@@ -46,12 +42,15 @@ const AddGame = () => {
   };
 
   const getGameThroughId = (id) => {
+    setLoading(true);
     getGameById(id)
       .then((resp) => {
         console.log({ resp });
         setCurrentGame(resp?.data);
+        setLoading(false);
       })
       .catch((err) => {
+        setLoading(false);
         errThrough(err);
       });
   };
@@ -131,39 +130,42 @@ const AddGame = () => {
       </div>
       <h4>Game {number}</h4>
       <h6 className="text-left">Team North</h6>
-      <select
-        name="northPlayer1"
-        required
-        disabled={location.state}
-        value={state.northPlayer1}
-        onChange={handleChange}
-      >
-        <option disabled value="" selected>
-          Select Player 1
-        </option>
-        {northTeams?.map((team) => (
-          <option value={team?.label} key={team?.label}>
-            {team?.label}
+      {Object.keys(currentGame)?.length > 0 && (
+        <select
+          name="northPlayer1"
+          required
+          disabled={location.state}
+          value={state.northPlayer1 ?? currentGame?.northPlayers[0]}
+          onChange={handleChange}
+        >
+          <option disabled value="" selected>
+            Select Player 1
           </option>
-        ))}
-      </select>
-
-      <select
-        name="northPlayer2"
-        required
-        disabled={location.state}
-        value={state.northPlayer2}
-        onChange={handleChange}
-      >
-        <option disabled value="" selected>
-          Select Player 2
-        </option>
-        {northTeams?.map((team) => (
-          <option value={team?.label} key={team?.label}>
-            {team?.label}
+          {northTeams?.map((team) => (
+            <option value={team?.label} key={team?.label}>
+              {team?.label}
+            </option>
+          ))}
+        </select>
+      )}
+      {Object.keys(currentGame)?.length > 0 && (
+        <select
+          name="northPlayer2"
+          required
+          disabled={location.state}
+          value={state.northPlayer2 ?? currentGame?.northPlayers[1]}
+          onChange={handleChange}
+        >
+          <option disabled value="" selected>
+            Select Player 2
           </option>
-        ))}
-      </select>
+          {northTeams?.map((team) => (
+            <option value={team?.label} key={team?.label}>
+              {team?.label}
+            </option>
+          ))}
+        </select>
+      )}
       {location.state && (
         <input
           type="text"
@@ -175,39 +177,42 @@ const AddGame = () => {
       )}
 
       <h6 className="text-left">Team South</h6>
-      <select
-        name="southPlayer1"
-        required
-        disabled={location.state}
-        value={state.southPlayer1}
-        onChange={handleChange}
-      >
-        <option disabled value="" selected>
-          Select Player 1
-        </option>
-        {southTeams?.map((team) => (
-          <option value={team?.label} key={team?.label}>
-            {team?.label}
+      {Object.keys(currentGame)?.length > 0 && (
+        <select
+          name="southPlayer1"
+          required
+          disabled={location.state}
+          value={state.southPlayer1 ?? currentGame?.southPlayers[0]}
+          onChange={handleChange}
+        >
+          <option disabled value="" selected>
+            Select Player 1
           </option>
-        ))}
-      </select>
-
-      <select
-        name="southPlayer2"
-        required
-        disabled={location.state}
-        value={state.southPlayer2}
-        onChange={handleChange}
-      >
-        <option disabled value="" selected>
-          Select Player 2
-        </option>
-        {southTeams?.map((team) => (
-          <option value={team?.label} key={team?.label}>
-            {team?.label}
+          {southTeams?.map((team) => (
+            <option value={team?.label} key={team?.label}>
+              {team?.label}
+            </option>
+          ))}
+        </select>
+      )}
+      {Object.keys(currentGame)?.length > 0 && (
+        <select
+          name="southPlayer2"
+          required
+          disabled={location.state}
+          value={state.southPlayer2 ?? currentGame?.southPlayers[1]}
+          onChange={handleChange}
+        >
+          <option disabled value="" selected>
+            Select Player 2
           </option>
-        ))}
-      </select>
+          {southTeams?.map((team) => (
+            <option value={team?.label} key={team?.label}>
+              {team?.label}
+            </option>
+          ))}
+        </select>
+      )}
       {location.state && (
         <input
           type="text"
@@ -228,6 +233,7 @@ const AddGame = () => {
       >
         Cancel
       </button>
+      <Loader loading={loading} />
     </form>
   );
 };

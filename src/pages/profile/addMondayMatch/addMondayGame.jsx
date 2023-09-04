@@ -6,6 +6,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { errThrough, parsePlayerList } from "../../../utilities/function";
 import { addGame, getGameById, updateGame } from "../../../apis/api";
+import Loader from "../../../components/Loader";
 
 const AddMondayGame = () => {
   const [state, setState] = useState({ loading: true });
@@ -13,6 +14,7 @@ const AddMondayGame = () => {
   const location = useLocation();
   const [currentGame, setCurrentGame] = useState({});
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const [northTeams, setNorthTeams] = useState(parsePlayerList()?.north);
   const [southTeams, setSouthTeams] = useState(parsePlayerList()?.south);
@@ -34,12 +36,15 @@ const AddMondayGame = () => {
   };
 
   const getGameThroughId = (id) => {
+    setLoading(true);
     getGameById(id)
       .then((resp) => {
         console.log({ resp });
         setCurrentGame(resp?.data);
+        setLoading(false);
       })
       .catch((err) => {
+        setLoading(false);
         errThrough(err);
       });
   };
@@ -84,6 +89,12 @@ const AddMondayGame = () => {
     saveGame();
   };
 
+  console.log({ currentGame });
+
+  if (loading) {
+    return;
+  }
+
   return (
     <form
       className="login-form"
@@ -100,22 +111,24 @@ const AddMondayGame = () => {
       </div>
       <h4>Game {(id, number)}</h4>
       <h6 className="text-left">Team North</h6>
-      <select
-        name="northPlayer"
-        required
-        disabled={location.state}
-        value={state.northPlayer}
-        onChange={handleChange}
-      >
-        <option disabled value="" selected>
-          Select Player
-        </option>
-        {northTeams?.map((team) => (
-          <option value={team?.label} key={team?.label}>
-            {team?.label}
+      {Object.keys(currentGame)?.length > 0 && (
+        <select
+          name="northPlayer"
+          required
+          disabled={location.state}
+          value={state.northPlayer ?? currentGame?.northPlayers[0]}
+          onChange={handleChange}
+        >
+          <option disabled value="" selected>
+            Select Player
           </option>
-        ))}
-      </select>
+          {northTeams?.map((team) => (
+            <option value={team?.label} key={team?.label}>
+              {team?.label}
+            </option>
+          ))}
+        </select>
+      )}
 
       {location.state && (
         <input
@@ -128,22 +141,24 @@ const AddMondayGame = () => {
       )}
 
       <h6 className="text-left">Team South</h6>
-      <select
-        name="southPlayer"
-        required
-        disabled={location.state}
-        value={state.southPlayer}
-        onChange={handleChange}
-      >
-        <option disabled value="" selected>
-          Select Player
-        </option>
-        {southTeams?.map((team) => (
-          <option value={team?.label} key={team?.label}>
-            {team?.label}
+      {Object.keys(currentGame)?.length > 0 && (
+        <select
+          name="southPlayer"
+          required
+          disabled={location.state}
+          value={state.southPlayer ?? currentGame?.southPlayers[0]}
+          onChange={handleChange}
+        >
+          <option disabled value="" selected>
+            Select Player
           </option>
-        ))}
-      </select>
+          {southTeams?.map((team) => (
+            <option value={team?.label} key={team?.label}>
+              {team?.label}
+            </option>
+          ))}
+        </select>
+      )}
 
       {location.state && (
         <input
@@ -165,6 +180,8 @@ const AddMondayGame = () => {
       >
         Cancel
       </button>
+
+      <Loader loading={loading} />
     </form>
   );
 };
