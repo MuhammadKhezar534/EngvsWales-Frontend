@@ -5,8 +5,12 @@ export const login = (payload) => {
   return axios.post(`/auth/login`, payload);
 };
 
-export const addPlayer = (payload) => {
-  return axios.post(`/player`, payload);
+export const addPlayer = (payload, id) => {
+  if (id !== null) {
+    return axios.put(`/player?id=${id}`, payload);
+  } else {
+    return axios.post(`/player`, payload);
+  }
 };
 
 export const getPlayersList = (teamType) => {
@@ -31,5 +35,6 @@ export const getGameById = (id) => {
 };
 
 export const getPlayerById = (id) => {
+  console.log("sasas", id);
   return axios.get(`/player/single/${id}`);
 };

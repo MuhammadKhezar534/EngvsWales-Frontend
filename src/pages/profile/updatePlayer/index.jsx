@@ -6,27 +6,18 @@ const UpdatePlayer = () => {
     ...JSON.parse(localStorage.getItem("NORTH")),
     ...JSON.parse(localStorage.getItem("SOUTH")),
   ];
-
   let navigate = useNavigate();
-  //   //   useEffect(() => {
-  //   //     getTeams("NORTH");
-  //   //     getTeams("SOUTH");
-  //   //   }, []);
 
-  //   //   const getTeams = (teamType) => {
-  //   //     getPlayersList(teamType)
-  //   //       .then((resp) => {
-  //   //         console.log({ resp });
-  //   //         setPlayer((prev) => [...prev, ...resp?.data]);
-  //   //       })
-  //   //       .catch((err) => {
-  //   //         errThrough(err);
-  //   //       });
-  //   //   };
-
-  //   console.log({ plyers: plyers?.sort((a, b) => a._id - b._id) });
   return (
     <div style={{ textAlign: "left" }}>
+      <div className="d-flex" style={{ marginBottom: "20px" }}>
+        <img
+          src="/images/back-arrow.png"
+          onClick={() => navigate("/profile")}
+          alt="back"
+          className="cursor-pointer"
+        />
+      </div>
       {plyers?.length > 0 &&
         plyers?.map((pl) => (
           <div>

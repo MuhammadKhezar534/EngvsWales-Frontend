@@ -14,20 +14,20 @@ const AddPlayer = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [currentPlayer, setPlayer] = useState({
-    firstName: "Dan",
-    lastName: "Atkins",
-    teamType: "NORTH",
-    isCaptain: false,
-    playerBio: "Player from Leeds",
-    homeCourse: "Calverley Golf Club",
-    favouriteClub: "5 Wood",
-    favouriteCourse: "Belton Woods",
-    dgaEvents: 5,
-    topTenFinishes: 3,
+    // firstName: "Dan",
+    // lastName: "Atkins",
+    // teamType: "NORTH",
+    // isCaptain: false,
+    // playerBio: "Player from Leeds",
+    // homeCourse: "Calverley Golf Club",
+    // favouriteClub: "5 Wood",
+    // favouriteCourse: "Belton Woods",
+    // dgaEvents: 5,
+    // topTenFinishes: 3,
   });
 
   const handleAddPlayer = (payload) => {
-    addPlayer(payload)
+    addPlayer(payload, id)
       .then((resp) => {
         toast.success("Player added successfully");
         getTeams("NORTH");
@@ -54,16 +54,16 @@ const AddPlayer = () => {
     console.log({ state });
 
     const payload = {
-      firstName: state?.firstName,
-      lastName: state?.lastName,
-      teamType: state?.team?.toUpperCase(),
-      isCaptain: state?.captain ? true : false,
-      playerBio: state?.bio,
-      homeCourse: state?.homeCourse,
-      favouriteClub: state?.favoriteClub,
-      favouriteCourse: state?.favoriteCourse,
-      dgaEvents: +state?.DGAEventsPlayed,
-      topTenFinishes: +state?.top10Finish,
+      firstName: state?.firstName ?? currentPlayer?.firstName,
+      lastName: state?.lastName ?? currentPlayer?.lastName,
+      teamType: state?.team?.toUpperCase() ?? currentPlayer?.teamType,
+      isCaptain: state?.captain ?? currentPlayer?.isCaptain ?? false,
+      playerBio: state?.bio ?? currentPlayer?.playerBio,
+      homeCourse: state?.homeCourse ?? currentPlayer?.homeCourse,
+      favouriteClub: state?.favoriteClub ?? currentPlayer?.favouriteClub,
+      favouriteCourse: state?.favoriteCourse ?? currentPlayer?.favouriteCourse,
+      dgaEvents: +state?.DGAEventsPlayed ?? currentPlayer?.dgaEvents,
+      topTenFinishes: +state?.top10Finish ?? currentPlayer?.topTenFinishes,
     };
 
     handleAddPlayer(payload);
@@ -76,8 +76,9 @@ const AddPlayer = () => {
 
   useEffect(() => {
     if (id) {
-      // getGameThroughId(id);
+      getGameThroughId(id);
     }
+    // eslint-disable-next-line
   }, []);
 
   const getGameThroughId = (id) => {
@@ -85,6 +86,7 @@ const AddPlayer = () => {
     getPlayerById(id)
       .then((resp) => {
         console.log({ platerFetc: resp });
+        setPlayer(resp?.data);
         setLoading(false);
       })
       .catch((err) => {
