@@ -35,7 +35,7 @@ const AddPlayer = () => {
         navigate("/profile");
       })
       .catch((err) => {
-        errThrough(err);
+        errThrough(err, navigate);
       });
   };
 
@@ -45,7 +45,7 @@ const AddPlayer = () => {
         localStorage.setItem(teamType, JSON.stringify(resp?.data));
       })
       .catch((err) => {
-        errThrough(err);
+        errThrough(err, navigate);
       });
   };
 
@@ -91,7 +91,7 @@ const AddPlayer = () => {
       })
       .catch((err) => {
         setLoading(false);
-        errThrough(err);
+        errThrough(err, navigate);
       });
   };
 
@@ -106,7 +106,7 @@ const AddPlayer = () => {
             className="cursor-pointer"
           />
         </div>
-        <h2>Add Player</h2>
+        <h2> {id !== null ? "Edit Player" : "Add Player"}</h2>
         <input
           type="text"
           required
@@ -198,7 +198,7 @@ const AddPlayer = () => {
         />
 
         <button type="submit" className="mb-12">
-          Add Player
+          {id !== null ? "Edit Player" : "Add Player"}
         </button>
         <button
           onClick={() => navigate("/profile")}

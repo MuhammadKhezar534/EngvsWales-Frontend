@@ -11,15 +11,7 @@ const Venues = () => {
         <img src="/images/logo.png" alt="logo" />
       </div>
 
-      <div
-        className={styles.vBox}
-        onClick={() =>
-          window.open(
-            "https://www.macdonaldhotels.co.uk/hill-valley?gclid=05606a4c63841f06aab30eab025284c0&gclsrc=3p.ds&utm_source=bing&utm_medium=cpc&utm_campaign=Search_Hotels_Brand_Hill%20Valley&utm_term=hill%20valley&utm_content=Brand_Hill%20Valley",
-            "_blank"
-          )
-        }
-      >
+      <div className={styles.vBox}>
         <div className={styles.headMa}>
           <div className={styles.mainHead}>Hill Valley Golf Club</div>
           <div className={styles.legend}>

@@ -31,7 +31,7 @@ const AddMondayGame = () => {
         navigate(-1);
       })
       .catch((err) => {
-        errThrough(err);
+        errThrough(err, navigate);
       });
   };
 
@@ -45,7 +45,7 @@ const AddMondayGame = () => {
       })
       .catch((err) => {
         setLoading(false);
-        errThrough(err);
+        errThrough(err, navigate);
       });
   };
 
@@ -67,7 +67,7 @@ const AddMondayGame = () => {
         navigate(-1);
       })
       .catch((err) => {
-        errThrough(err);
+        errThrough(err, navigate);
       });
   };
 

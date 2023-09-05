@@ -8,11 +8,13 @@ import Winner from "../../components/winner";
 import { getGames } from "../../apis/api";
 import { errThrough, parseScore } from "../../utilities/function";
 import Loader from "../../components/Loader";
+import { useNavigate } from "react-router-dom";
 
 const MondaySingles = () => {
   const [games, setGames] = useState([]);
   const [teamFinalScores, setScores] = useState({});
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const getgames = () => {
     setLoading(true);
@@ -24,7 +26,7 @@ const MondaySingles = () => {
         setLoading(false);
       })
       .catch((err) => {
-        errThrough(err);
+        errThrough(err, navigate);
         setLoading(false);
       });
   };

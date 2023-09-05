@@ -35,6 +35,5 @@ export const getGameById = (id) => {
 };
 
 export const getPlayerById = (id) => {
-  console.log("sasas", id);
   return axios.get(`/player/single/${id}`);
 };

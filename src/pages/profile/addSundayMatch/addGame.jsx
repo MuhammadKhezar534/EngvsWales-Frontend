@@ -37,7 +37,7 @@ const AddGame = () => {
         navigate(-1);
       })
       .catch((err) => {
-        errThrough(err);
+        errThrough(err, navigate);
       });
   };
 
@@ -51,7 +51,7 @@ const AddGame = () => {
       })
       .catch((err) => {
         setLoading(false);
-        errThrough(err);
+        errThrough(err, navigate);
       });
   };
 
@@ -69,7 +69,7 @@ const AddGame = () => {
         localStorage.setItem(teamType, JSON.stringify(resp?.data));
       })
       .catch((err) => {
-        errThrough(err);
+        errThrough(err, navigate);
       });
   };
 
@@ -86,7 +86,7 @@ const AddGame = () => {
         navigate(-1);
       })
       .catch((err) => {
-        errThrough(err);
+        errThrough(err, navigate);
       });
   };
 

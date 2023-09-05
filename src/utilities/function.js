@@ -1,7 +1,15 @@
 import { toast } from "react-toastify";
 
-export const errThrough = (error) => {
-  toast.error(error?.response?.data?.message);
+export const errThrough = (error, navigate) => {
+  if (error?.response?.status === 401) {
+    localStorage.clear();
+    navigate("/login");
+  }
+  toast.error(
+    error?.response?.status === 401
+      ? "Session expired. Please login again."
+      : error?.response?.data?.message
+  );
 };
 
 export const getPlayerDetail = (teamType, id) => {

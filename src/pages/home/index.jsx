@@ -29,7 +29,7 @@ const Home = () => {
         localStorage.setItem(teamType, JSON.stringify(resp?.data));
       })
       .catch((err) => {
-        errThrough(err);
+        errThrough(err, navigate);
       });
   };
 
@@ -40,7 +40,7 @@ const Home = () => {
         setScores(scores);
       })
       .catch((err) => {
-        errThrough(err);
+        errThrough(err, navigate);
         setLoading(false);
       });
   };
@@ -53,7 +53,7 @@ const Home = () => {
         setLoading(false);
       })
       .catch((err) => {
-        errThrough(err);
+        errThrough(err, navigate);
         setLoading(false);
       });
   };

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { login } from "../../apis/api";
+import { getPlayersList, login } from "../../apis/api";
 import Loader from "../../components/Loader";
+import { errThrough } from "../../utilities/function";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -19,6 +20,8 @@ const LoginForm = () => {
     })
       .then((resp) => {
         localStorage.setItem("XAUTH", resp?.data?.data?.access_token);
+        getTeams("NORTH");
+        getTeams("SOUTH");
         setLoading(false);
         navigate("/profile");
       })
@@ -37,6 +40,16 @@ const LoginForm = () => {
   if (localStorage.getItem("XAUTH")) {
     return <Navigate to="/profile" />;
   }
+
+  const getTeams = (teamType) => {
+    getPlayersList(teamType)
+      .then((resp) => {
+        localStorage.setItem(teamType, JSON.stringify(resp?.data));
+      })
+      .catch((err) => {
+        errThrough(err, navigate);
+      });
+  };
 
   return (
     <div className="login-container">

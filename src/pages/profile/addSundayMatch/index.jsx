@@ -20,7 +20,7 @@ const AddSundayMatch = () => {
       })
       .catch((err) => {
         setLoading(false);
-        errThrough(err);
+        errThrough(err, navigate);
       });
   };
 
