@@ -20,7 +20,7 @@ const Home = () => {
     getTeams("NORTH");
     getTeams("SOUTH");
     getgames();
-    getgamesMonday();
+    // eslint-disable-next-line
   }, []);
 
   const getTeams = (teamType) => {
@@ -38,6 +38,7 @@ const Home = () => {
       .then((resp) => {
         const scores = parseScore(resp?.data);
         setScores(scores);
+        getgamesMonday(scores);
       })
       .catch((err) => {
         errThrough(err, navigate);
@@ -45,11 +46,20 @@ const Home = () => {
       });
   };
 
-  const getgamesMonday = () => {
+  const getgamesMonday = (sundScores) => {
     getGames("MONDAY_SINGLES")
       .then((resp) => {
         const scores = parseScore(resp?.data);
         setScoresM(scores);
+
+        localStorage.setItem(
+          "NorthScore",
+          scores?.northScore + sundScores?.northScore
+        );
+        localStorage.setItem(
+          "SouthScore",
+          scores?.southScore + sundScores?.southScore
+        );
         setLoading(false);
       })
       .catch((err) => {
@@ -83,20 +93,7 @@ const Home = () => {
       {teamFinalScores?.northScore < 0 && teamFinalScores?.southScore > 0 && (
         <div className={styles.matchName}>After Sunday Fourballs</div>
       )}
-      {/* <div className={styles.scoreWrap}>
-        <img
-          className={styles.matchImg}
-          src="/images/sunday-fixtures.png"
-          alt="matches"
-          onClick={() => navigate("/sunday-fixtures")}
-        />
-        <img
-          className={styles.matchImg}
-          src="/images/monday-fixtures.png"
-          alt="matches"
-          onClick={() => navigate("/monday-fixtures")}
-        />
-      </div> */}
+
       <div className={styles.cCtn}>
         <Carousel
           autoPlay={true}

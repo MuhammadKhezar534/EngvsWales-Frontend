@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { isDecimal } from "../utilities/function";
 import styles from "./style.module.css";
-const ScoreBox = ({ score, color, name }) => {
+const ScoreBox = ({ score, name }) => {
   return (
     <div className={name !== "South" ? styles.col : styles.col2}>
       <div className={styles.name}>{name}</div>
