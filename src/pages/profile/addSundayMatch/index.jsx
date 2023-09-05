@@ -26,6 +26,7 @@ const AddSundayMatch = () => {
 
   useEffect(() => {
     fetchGames();
+    // eslint-disable-next-line
   }, []);
 
   return (

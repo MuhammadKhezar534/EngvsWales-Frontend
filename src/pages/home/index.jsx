@@ -108,11 +108,11 @@ const Home = () => {
             onClick={() => navigate("/sunday-fixtures")}
             className={styles.cICtn}
           >
-            <img src="/images/nDark.jpg" alt="nDark.jpg" />
+            <img src="/images/nDark.png" alt="nDark.png" />
             <div className={styles.txtC}>Sunday Fixtures & Results</div>
           </div>
           <div onClick={() => navigate("/monday-fixtures")}>
-            <img src="/images/sDark.jpg" alt="sDark.jpg" />
+            <img src="/images/sDark.png" alt="sDark.png" />
             <div className={styles.txtC}>Monday Fixtures & Results</div>
           </div>
         </Carousel>

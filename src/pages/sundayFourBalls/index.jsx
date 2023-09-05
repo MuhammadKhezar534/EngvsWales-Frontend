@@ -32,6 +32,7 @@ const SundayFourBalls = () => {
 
   useEffect(() => {
     getgames();
+    // eslint-disable-next-line
   }, []);
 
   return (
