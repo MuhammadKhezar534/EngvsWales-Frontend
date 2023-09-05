@@ -2,7 +2,6 @@ import { toast } from "react-toastify";
 
 export const errThrough = (error, navigate) => {
   if (error?.response?.status === 401) {
-    localStorage.clear();
     navigate("/login");
   }
   toast.error(
