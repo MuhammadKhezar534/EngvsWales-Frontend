@@ -32,12 +32,12 @@ export const parsePlayerList = (teamType) => {
 
   const north = northList?.map((lis) => {
     return {
-      label: lis?.firstName,
+      label: lis?.firstName + " " + lis?.lastName,
     };
   });
   const south = southList?.map((lis) => {
     return {
-      label: lis?.firstName,
+      label: lis?.firstName + " " + lis?.lastName,
     };
   });
 

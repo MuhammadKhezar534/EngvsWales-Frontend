@@ -13,7 +13,9 @@ const PointWithName = ({
       <div style={{ background: color }} className={styles.playerName}>
         {name?.map(
           (nam, index) =>
-            `${nam} ${index === 0 && name?.length > 1 ? "/ " : ""}`
+            `${nam?.split(" ")[0]} ${
+              index === 0 && name?.length > 1 ? "/ " : ""
+            }`
         )}
       </div>
       {position === "right" && <div className={styles.point}>{point}</div>}
