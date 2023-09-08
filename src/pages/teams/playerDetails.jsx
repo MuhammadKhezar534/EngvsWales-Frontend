@@ -14,7 +14,7 @@ const PlayerDetails = ({ title, team }) => {
   console.log({ id, detail });
 
   return (
-    <div>
+    <div style={{ marginBottom: "100px" }}>
       <PageHeader showLogo={true} title={title} />
       <PlayerCard isInfo={false} {...detail} />
       <div className={styles.statsWrap}>

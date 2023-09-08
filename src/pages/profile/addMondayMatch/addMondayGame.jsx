@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-
-import "../style.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { errThrough, parsePlayerList } from "../../../utilities/function";
 import { addGame, getGameById, updateGame } from "../../../apis/api";
 import Loader from "../../../components/Loader";
+import "../style.css";
 
 const AddMondayGame = () => {
   const [state, setState] = useState({ loading: true });
-  const { id, number } = useParams();
+  const { id = null, number } = useParams();
   const location = useLocation();
   const [currentGame, setCurrentGame] = useState({});
   const navigate = useNavigate();
@@ -89,12 +87,6 @@ const AddMondayGame = () => {
     saveGame();
   };
 
-  console.log({ currentGame });
-
-  if (loading) {
-    return;
-  }
-
   return (
     <form
       className="login-form"
@@ -110,13 +102,20 @@ const AddMondayGame = () => {
         />
       </div>
       <h4>Game {(id, number)}</h4>
-      <h6 className="text-left">Team North</h6>
-      {Object.keys(currentGame)?.length > 0 && (
+      <h6 className="text-left" style={{ margin: "0px 0px 10px 0px" }}>
+        Team North
+      </h6>
+      {((Object.keys(currentGame)?.length > 0 && id !== null) ||
+        id === null) && (
         <select
           name="northPlayer"
           required
           disabled={location.state}
-          value={state.northPlayer ?? currentGame?.northPlayers[0]}
+          value={
+            id === null
+              ? state?.northPlayer
+              : state.northPlayer ?? currentGame?.northPlayers[0]
+          }
           onChange={handleChange}
         >
           <option disabled value="" selected>
@@ -140,13 +139,20 @@ const AddMondayGame = () => {
         />
       )}
 
-      <h6 className="text-left">Team South</h6>
-      {Object.keys(currentGame)?.length > 0 && (
+      <h6 className="text-left" style={{ margin: "20px 0px 10px 0px" }}>
+        Team South
+      </h6>
+      {((Object.keys(currentGame)?.length > 0 && id !== null) ||
+        id === null) && (
         <select
           name="southPlayer"
           required
           disabled={location.state}
-          value={state.southPlayer ?? currentGame?.southPlayers[0]}
+          value={
+            id === null
+              ? state?.southPlayer
+              : state.southPlayer ?? currentGame?.southPlayers[0]
+          }
           onChange={handleChange}
         >
           <option disabled value="" selected>

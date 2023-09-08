@@ -21,7 +21,7 @@ const AddGame = () => {
   const [northTeams, setNorthTeams] = useState(parsePlayerList()?.north);
   const [southTeams, setSouthTeams] = useState(parsePlayerList()?.south);
 
-  const { id, number } = useParams();
+  const { id = null, number } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -130,12 +130,17 @@ const AddGame = () => {
       </div>
       <h4>Game {number}</h4>
       <h6 className="text-left">Team North</h6>
-      {Object.keys(currentGame)?.length > 0 && (
+      {((Object.keys(currentGame)?.length > 0 && id !== null) ||
+        id === null) && (
         <select
           name="northPlayer1"
           required
           disabled={location.state}
-          value={state.northPlayer1 ?? currentGame?.northPlayers[0]}
+          value={
+            id === null
+              ? state?.northPlayer1
+              : state.northPlayer1 ?? currentGame?.northPlayers[0]
+          }
           onChange={handleChange}
         >
           <option disabled value="" selected>
@@ -148,12 +153,17 @@ const AddGame = () => {
           ))}
         </select>
       )}
-      {Object.keys(currentGame)?.length > 0 && (
+      {((Object.keys(currentGame)?.length > 0 && id !== null) ||
+        id === null) && (
         <select
           name="northPlayer2"
           required
           disabled={location.state}
-          value={state.northPlayer2 ?? currentGame?.northPlayers[1]}
+          value={
+            id === null
+              ? state?.northPlayer2
+              : state.northPlayer2 ?? currentGame?.northPlayers[1]
+          }
           onChange={handleChange}
         >
           <option disabled value="" selected>
@@ -177,12 +187,17 @@ const AddGame = () => {
       )}
 
       <h6 className="text-left">Team South</h6>
-      {Object.keys(currentGame)?.length > 0 && (
+      {((Object.keys(currentGame)?.length > 0 && id !== null) ||
+        id === null) && (
         <select
           name="southPlayer1"
           required
           disabled={location.state}
-          value={state.southPlayer1 ?? currentGame?.southPlayers[0]}
+          value={
+            id === null
+              ? state?.southPlayer1
+              : state.southPlayer1 ?? currentGame?.southPlayers[0]
+          }
           onChange={handleChange}
         >
           <option disabled value="" selected>
@@ -195,12 +210,17 @@ const AddGame = () => {
           ))}
         </select>
       )}
-      {Object.keys(currentGame)?.length > 0 && (
+      {((Object.keys(currentGame)?.length > 0 && id !== null) ||
+        id === null) && (
         <select
           name="southPlayer2"
           required
           disabled={location.state}
-          value={state.southPlayer2 ?? currentGame?.southPlayers[1]}
+          value={
+            id === null
+              ? state?.southPlayer2
+              : state.southPlayer2 ?? currentGame?.southPlayers[1]
+          }
           onChange={handleChange}
         >
           <option disabled value="" selected>
