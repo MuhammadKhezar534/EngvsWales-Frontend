@@ -48,8 +48,15 @@ const AddSundayMatch = () => {
 
       {games?.map((game, index) => (
         <div key={game?._id}>
-          <h4>Game {index + 1}</h4>
-          <div>
+          <h4 style={{ marginBottom: "5px" }}>Game {index + 1}</h4>
+          {game?.northPlayers?.map((pla) => (
+            <span>{pla} </span>
+          ))}
+          <span style={{ color: "#000", fontWeight: "bold" }}>VS </span>
+          {game?.southPlayers?.map((pla) => (
+            <span>{pla} </span>
+          ))}
+          <div style={{ marginTop: "10px" }}>
             <button
               className="ml-12"
               onClick={() => navigate("add-game/" + game?._id, { state: true })}
