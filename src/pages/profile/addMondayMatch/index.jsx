@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "../style.css";
-import { getGames } from "../../../apis/api";
+import { deleteGame, getGames } from "../../../apis/api";
 import { errThrough } from "../../../utilities/function";
 import Loader from "../../../components/Loader";
 
@@ -20,6 +20,16 @@ const AddSundayMatch = () => {
       })
       .catch((err) => {
         setLoading(false);
+        errThrough(err, navigate);
+      });
+  };
+
+  const gameRemove = (gameId) => {
+    deleteGame(gameId)
+      .then((resp) => {
+        fetchGames();
+      })
+      .catch((err) => {
         errThrough(err, navigate);
       });
   };
@@ -48,13 +58,33 @@ const AddSundayMatch = () => {
 
       {games?.map((game, index) => (
         <div key={game?._id}>
-          <h4 style={{ marginBottom: "5px" }}>Game {index + 1}</h4>
+          <div
+            style={{
+              display: "flex",
+              marginBottom: "5px",
+              alignItems: "baseline",
+              justifyContent: "center",
+            }}
+          >
+            <h4 style={{ marginBottom: "5px" }}>Game {index + 1}</h4>
+            <img
+              src="/images/delete.png"
+              alt="delete"
+              style={{
+                height: "20px",
+                margin: "10px 0px 0px 10px",
+                cursor: "pointer",
+              }}
+              onClick={() => gameRemove(game?._id)}
+            />
+          </div>
+
           {game?.northPlayers?.map((pla) => (
             <span>{pla} </span>
           ))}
           <span style={{ color: "#000", fontWeight: "bold" }}>VS </span>
           {game?.southPlayers?.map((pla) => (
-            <span>{pla} </span>
+            <span>{pla}</span>
           ))}
           <div style={{ marginTop: "10px" }}>
             <button
