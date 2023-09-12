@@ -41,3 +41,7 @@ export const deleteGame = (id) => {
 export const getPlayerById = (id) => {
   return axios.get(`/player/single/${id}`);
 };
+
+export const deletePlayer = (id) => {
+  return axios.delete(`/player?playerId=${id}`);
+};

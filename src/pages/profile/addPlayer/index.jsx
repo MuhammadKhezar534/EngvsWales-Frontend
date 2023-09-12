@@ -9,22 +9,10 @@ import Loader from "../../../components/Loader";
 
 const AddPlayer = () => {
   const [state, setState] = useState("");
-  //   const [error, setError] = useState("");
   const { id = null } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [currentPlayer, setPlayer] = useState({
-    // firstName: "Dan",
-    // lastName: "Atkins",
-    // teamType: "NORTH",
-    // isCaptain: false,
-    // playerBio: "Player from Leeds",
-    // homeCourse: "Calverley Golf Club",
-    // favouriteClub: "5 Wood",
-    // favouriteCourse: "Belton Woods",
-    // dgaEvents: 5,
-    // topTenFinishes: 3,
-  });
+  const [currentPlayer, setPlayer] = useState({});
 
   const handleAddPlayer = (payload) => {
     addPlayer(payload, id)
@@ -101,7 +89,7 @@ const AddPlayer = () => {
         <div className="d-flex">
           <img
             src="/images/back-arrow.png"
-            onClick={() => navigate("/profile")}
+            onClick={() => navigate("/update-player")}
             alt="back"
             className="cursor-pointer"
           />
