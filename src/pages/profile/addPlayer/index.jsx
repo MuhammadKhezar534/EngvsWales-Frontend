@@ -73,7 +73,6 @@ const AddPlayer = () => {
     setLoading(true);
     getPlayerById(id)
       .then((resp) => {
-        console.log({ platerFetc: resp });
         setPlayer(resp?.data);
         setLoading(false);
       })
