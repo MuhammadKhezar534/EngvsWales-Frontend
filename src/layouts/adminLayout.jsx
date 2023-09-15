@@ -16,7 +16,7 @@ const AdminLayout = () => {
       <div className="text-right" style={{ marginTop: "30%" }}>
         <button
           onClick={() => {
-            localStorage.clear();
+            localStorage.removeItem("XAUTH");
             navigate("/login");
           }}
         >

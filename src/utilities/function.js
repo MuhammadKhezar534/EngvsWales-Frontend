@@ -12,16 +12,18 @@ export const errThrough = (error, navigate) => {
   );
 };
 
-export const getPlayerDetail = (teamType, id) => {
-  const list = JSON.parse(localStorage.getItem(teamType));
+export const getPlayerDetail = (teamType, id, list) => {
+  // const list = JSON.parse(localStorage.getItem(teamType));
 
   let detail = {};
 
-  list?.forEach((lis) => {
-    if (lis?._id === id) {
-      detail = { ...lis };
-    }
-  });
+  if (list && list?.length > 0) {
+    list?.forEach((lis) => {
+      if (lis?._id === id) {
+        detail = { ...lis };
+      }
+    });
+  }
 
   return detail;
 };
