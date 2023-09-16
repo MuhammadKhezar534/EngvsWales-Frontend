@@ -4,9 +4,6 @@ const CACHE_NAME = "my-pwa-cache-v1";
 
 const serviceWorkerSelf = self;
 
-// var serviceWorkerSelf = this;
-console.log({ serviceWorkerSelf });
-
 serviceWorkerSelf.addEventListener("install", (event) => {
   console.log({ event });
   event.waitUntil(
