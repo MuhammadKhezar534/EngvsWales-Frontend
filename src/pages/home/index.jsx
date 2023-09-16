@@ -73,7 +73,7 @@ const Home = () => {
       <div className={styles.logoWrap}>
         <div>
           <div className={styles.title}>
-            Welcome to the DGA North Vs South 2023
+            Welcome to the DGA North Vs South 2027
           </div>
         </div>
         <img src="/images/logo.png" alt="logo" />
