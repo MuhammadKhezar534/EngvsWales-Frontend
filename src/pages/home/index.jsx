@@ -121,7 +121,7 @@ const Home = () => {
           window.open("https://photos.app.goo.gl/6fv4aVnQgz1iU6i26", "_blank")
         }
       >
-        <img src="/images/gallery.png" alt="gallery" />
+        <img src="/images/gallery.jpeg" alt="gallery" />
       </div>
 
       <Loader loading={loading} />
