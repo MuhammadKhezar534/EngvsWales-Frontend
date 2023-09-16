@@ -68,3 +68,16 @@
   line-height: normal;
   letter-spacing: -1.04px;
 }
+
+.galleryImg {
+  margin-top: 50px;
+  max-width: 490px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.galleryImg img {
+  width: 100%;
+  object-fit: contain;
+  box-shadow: 3px 6px 8px rgba(0, 0, 0, 0.2);
+}

@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import ScoreBox from "../../components/scoreBox";
-import styles from "./style.module.css";
 import { getGames, getPlayersList } from "../../apis/api";
 import { errThrough, parseScore } from "../../utilities/function";
 import { useEffect, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import Loader from "../../components/Loader";
+import styles from "./style.module.css";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -113,6 +113,15 @@ const Home = () => {
             <div className={styles.txtC}>Monday Fixtures & Results</div>
           </div>
         </Carousel>
+      </div>
+
+      <div
+        className={styles.galleryImg}
+        onClick={() =>
+          window.open("https://photos.app.goo.gl/6fv4aVnQgz1iU6i26", "_blank")
+        }
+      >
+        <img src="/images/gallery.png" alt="gallery" />
       </div>
 
       <Loader loading={loading} />
