@@ -75,12 +75,12 @@ const MondaySingles = () => {
         </div>
       </div>
 
-      {games?.length > 11 && (
+      {/* {games?.length > 11 && (
         <Winner
           // text={"Team North Win 10 1/2 Points to  7 1/22 Points over Team South"}
           text={teamFinalScores?.winner + " team win."}
         />
-      )}
+      )} */}
       <Loader loading={loading} />
     </div>
   );
