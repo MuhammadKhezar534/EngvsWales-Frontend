@@ -73,25 +73,25 @@ const Home = () => {
       <div className={styles.logoWrap}>
         <div>
           <div className={styles.title}>
-            Welcome to the DGA North Vs South 2023
+            Welcome to DGA England Vs Wales 2023
           </div>
         </div>
         <img src="/images/logo.png" alt="logo" />
       </div>
       <div className={styles.scoreWrap}>
         <ScoreBox
-          name="North"
+          name="England"
           color={"#FF8C8C"}
           score={teamFinalScores?.northScore + teamFinalScoresM?.northScore}
         />
         <ScoreBox
-          name="South"
+          name="Wales"
           color={"#8CA5FF"}
           score={teamFinalScores?.southScore + teamFinalScoresM?.southScore}
         />
       </div>
       {teamFinalScores?.northScore < 0 && teamFinalScores?.southScore > 0 && (
-        <div className={styles.matchName}>After Sunday Fourballs</div>
+        <div className={styles.matchName}>After Fourballs</div>
       )}
 
       <div className={styles.cCtn}>

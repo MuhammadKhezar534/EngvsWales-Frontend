@@ -28,7 +28,7 @@
 }
 
 .bckImg {
-  background-image: url("/public/images/downloadSouth.jpeg");
+  background-image: url("/public/images/England.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -42,7 +42,7 @@
 
 .imgS {
   margin-top: 20px;
-  background-image: url("/public/images/imageGolfs.jpeg");
+  background-image: url("/public/images/wales.jpg");
 }
 
 .imgW {

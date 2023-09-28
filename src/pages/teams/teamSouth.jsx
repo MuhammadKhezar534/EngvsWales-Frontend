@@ -27,7 +27,7 @@ const TeamSouth = () => {
 
   return (
     <div style={{ marginBottom: "80px" }}>
-      <PageHeader title={"Team South"} showLogo={true} />
+      <PageHeader title="Team Wales" showLogo={true} />
       {loTeams &&
         loTeams?.length > 0 &&
         loTeams?.map((team) => (

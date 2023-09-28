@@ -37,15 +37,15 @@ const SundayFourBalls = () => {
 
   return (
     <div className={styles.ctnM}>
-      <PageHeader title={"Sunday Fourballs"} />
+      <PageHeader title="Fourballs Matches" />
       <div className={styles.scoreWrap}>
         <ScoreBox
-          name="North"
+          name="England"
           color={"#FF8C8C"}
           score={teamFinalScores?.northScore}
         />
         <ScoreBox
-          name="South"
+          name="Wales"
           color={"#8CA5FF"}
           score={teamFinalScores?.southScore}
         />

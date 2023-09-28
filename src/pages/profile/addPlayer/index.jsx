@@ -121,8 +121,8 @@ const AddPlayer = () => {
           <option disabled value="" selected>
             Select Team
           </option>
-          <option value="north">North</option>
-          <option value="south">South</option>
+          <option value="north">England</option>
+          <option value="south">Wales</option>
         </select>
         <label className="captain-label">
           Captain

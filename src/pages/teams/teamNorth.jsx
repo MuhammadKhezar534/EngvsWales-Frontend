@@ -27,7 +27,7 @@ const TeamNorth = () => {
 
   return (
     <div style={{ marginBottom: "80px" }}>
-      <PageHeader title={"Team North"} showLogo={true} />
+      <PageHeader title="Team England" showLogo={true} />
       {loTeams &&
         loTeams?.length > 0 &&
         loTeams?.map((team) => (

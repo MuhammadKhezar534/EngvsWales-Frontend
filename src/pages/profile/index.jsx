@@ -19,7 +19,7 @@ const UserProfile = () => {
           Update Player
         </button>
       </div>
-      <h3>Sunday Fourballs Matches</h3>
+      <h3>Fourballs Matches</h3>
       <div
         style={{
           display: "flex",
@@ -33,7 +33,7 @@ const UserProfile = () => {
         </button>
         {/* <button onClick={() => navigate("/sunday-fixtures")}></button> */}
       </div>
-      <h3>Monday Singles Matches</h3>
+      <h3>Singles Matches</h3>
       <div
         style={{
           display: "flex",

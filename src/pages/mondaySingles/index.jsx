@@ -37,15 +37,15 @@ const MondaySingles = () => {
 
   return (
     <div style={{ marginBottom: "160px" }}>
-      <PageHeader title={"Monday Singles"} />
+      <PageHeader title={"Singles Matches"} />
       <div className={styles.scoreWrap}>
         <ScoreBox
-          name="North"
+          name="England"
           color={"#FF8C8C"}
           score={teamFinalScores?.northScore}
         />
         <ScoreBox
-          name="South"
+          name="Wales"
           color={"#8CA5FF"}
           score={teamFinalScores?.southScore}
         />

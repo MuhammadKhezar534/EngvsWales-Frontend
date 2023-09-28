@@ -59,7 +59,7 @@
 }
 
 .vBox {
-  background-image: url("/public/images/venue2.png");
+  background-image: url("/public/images/wale1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -143,13 +143,13 @@
 
 .inIm {
   max-width: 144px;
-
   margin-bottom: 100px;
+  height: 80px;
 }
 
 .inIm img {
   border-radius: 21px;
-
   width: 100%;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
 }

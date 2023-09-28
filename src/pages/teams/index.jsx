@@ -14,8 +14,10 @@ const Team = () => {
       <div className={styles.teamWrap}>
         <div className={styles.bckImg} onClick={() => navigate("/teams/north")}>
           <div className={styles.imgW}>
-            <div className={styles.teamName}>Team North</div>
-            <div className={styles.subText}>See the players for Team North</div>
+            <div className={styles.teamName}>Team England</div>
+            <div className={styles.subText}>
+              See the players for Team England
+            </div>
           </div>
         </div>
         <div
@@ -23,8 +25,8 @@ const Team = () => {
           onClick={() => navigate("/teams/south")}
         >
           <div className={styles.imgW}>
-            <div className={styles.teamName}>Team South</div>
-            <div className={styles.subText}>See the players for Team South</div>
+            <div className={styles.teamName}>Team Wales</div>
+            <div className={styles.subText}>See the players for Team Wales</div>
           </div>
         </div>
       </div>
