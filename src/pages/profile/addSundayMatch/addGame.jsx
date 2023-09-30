@@ -61,6 +61,7 @@ const AddGame = () => {
     }
     getTeams("NORTH");
     getTeams("SOUTH");
+    // eslint-disable-next-line
   }, []);
 
   const getTeams = (teamType) => {
@@ -129,7 +130,7 @@ const AddGame = () => {
         />
       </div>
       <h4>Game {number}</h4>
-      <h6 className="text-left">Team North</h6>
+      <h6 className="text-left">Team England</h6>
       {((Object.keys(currentGame)?.length > 0 && id !== null) ||
         id === null) && (
         <select
@@ -186,7 +187,7 @@ const AddGame = () => {
         />
       )}
 
-      <h6 className="text-left">Team South</h6>
+      <h6 className="text-left">Team Wales</h6>
       {((Object.keys(currentGame)?.length > 0 && id !== null) ||
         id === null) && (
         <select

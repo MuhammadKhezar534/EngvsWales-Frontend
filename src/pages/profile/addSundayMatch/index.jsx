@@ -49,7 +49,7 @@ const AddSundayMatch = () => {
           className="cursor-pointer"
         />
       </div>
-      <h2>Add Sunday Fourballs Match</h2>
+      <h2>Add Fourballs Match</h2>
 
       {games?.length < 6 && (
         <button className="mr-0" onClick={() => navigate("add-game")}>

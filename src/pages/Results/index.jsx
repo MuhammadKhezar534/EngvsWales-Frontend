@@ -15,11 +15,11 @@ const Results = () => {
         className={styles.cICtn}
       >
         <img src="/images/nDark.png" alt="nDark.png" />
-        <div className={styles.txtC}>Sunday Fixtures & Results</div>
+        <div className={styles.txtC}>Fourballs Fixtures & Results</div>
       </div>
       <div onClick={() => navigate("/monday-fixtures")} className="c-tn">
         <img src="/images/sDark.png" alt="sDark.png" />
-        <div className={styles.txtC}>Monday Fixtures & Results</div>
+        <div className={styles.txtC}>Signles Fixtures & Results</div>
       </div>
     </div>
   );

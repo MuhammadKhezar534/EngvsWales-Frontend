@@ -36,6 +36,7 @@ const AddSundayMatch = () => {
 
   useEffect(() => {
     fetchGames();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -48,7 +49,7 @@ const AddSundayMatch = () => {
           className="cursor-pointer"
         />
       </div>
-      <h2>Add Monday Singles Match</h2>
+      <h2>Add Singles Match</h2>
 
       {games?.length < 12 && (
         <button className="mr-0" onClick={() => navigate("add-game")}>
