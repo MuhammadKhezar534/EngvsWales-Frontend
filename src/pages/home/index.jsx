@@ -105,11 +105,11 @@ const Home = () => {
             onClick={() => navigate("/sunday-fixtures")}
             className={styles.cICtn}
           >
-            <img src="/images/nDark.png" alt="nDark.png" />
+            <img src="/images/fOURBALL.jpg" alt="fOURBALL.jpg" />
             <div className={styles.txtC}>Fourballs Fixtures & Results</div>
           </div>
           <div onClick={() => navigate("/monday-fixtures")}>
-            <img src="/images/sDark.png" alt="sDark.png" />
+            <img src="/images/Singles.jpg" alt="Singles.jpg" />
             <div className={styles.txtC}>Singles Fixtures & Results</div>
           </div>
         </Carousel>
@@ -118,7 +118,7 @@ const Home = () => {
       <div
         className={styles.galleryImg}
         onClick={() =>
-          window.open("https://photos.app.goo.gl/6fv4aVnQgz1iU6i26", "_blank")
+          window.open("https://photos.app.goo.gl/tbjDq7FJfkpgtKyJ6", "_blank")
         }
       >
         <img src="/images/gallery.jpeg" alt="gallery" />

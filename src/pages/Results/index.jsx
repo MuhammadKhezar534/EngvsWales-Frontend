@@ -14,11 +14,11 @@ const Results = () => {
         onClick={() => navigate("/sunday-fixtures")}
         className={styles.cICtn}
       >
-        <img src="/images/nDark.png" alt="nDark.png" />
+        <img src="/images/fOURBALL.jpg" alt="fOURBALL.jpg" />
         <div className={styles.txtC}>Fourballs Fixtures & Results</div>
       </div>
       <div onClick={() => navigate("/monday-fixtures")} className="c-tn">
-        <img src="/images/sDark.png" alt="sDark.png" />
+        <img src="/images/Singles.jpg" alt="Singles.jpg" />
         <div className={styles.txtC}>Signles Fixtures & Results</div>
       </div>
     </div>
