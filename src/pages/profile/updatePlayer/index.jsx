@@ -53,7 +53,7 @@ const UpdatePlayer = () => {
         />
       </div>
 
-      <h2 style={{ textAlign: "center" }}>North Players</h2>
+      <h2 style={{ textAlign: "center" }}>England Players</h2>
       {northP?.length > 0 &&
         northP?.map((pl) => (
           <div key={pl?._id}>
@@ -82,7 +82,7 @@ const UpdatePlayer = () => {
           </div>
         ))}
 
-      <h2 style={{ textAlign: "center", marginTop: "70px" }}>South Players</h2>
+      <h2 style={{ textAlign: "center", marginTop: "70px" }}>Wales Players</h2>
       {southP?.length > 0 &&
         southP?.map((pl) => (
           <div key={pl?._id}>
